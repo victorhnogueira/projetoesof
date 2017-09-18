@@ -1,0 +1,14 @@
+vetor = ["joaopedro","meu curso de engenharia biomedica", "pao biomedica pao", "engenharia biomedica"]
+find = "engenharia biomedica"
+
+def define_outpdf(vetor_entrada, query):
+    cont = len(vetor_entrada)
+    vetor_saida = {}
+    for cont in range(0, cont):
+        if query in vetor_entrada[cont]:
+            vetor_saida[cont] = vetor_entrada[cont]
+        cont-1
+    return vetor_saida
+
+
+define_outpdf(vetor, find)
