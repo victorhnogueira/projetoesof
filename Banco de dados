@@ -1,0 +1,20 @@
+import sqlite3
+conn = sqlite3.connect('bancodedados.db')
+cursor = conn.cursor()
+
+def cadastro_equipamento(nome, funcao, preco, status,data):
+    cursor.executemany('INSERT INTO equipamentos(nome,funcao,preco,status,data)VALUES(?,?,?,?,?)',(nome,funcao,preco,status,data))
+    conn.commit()
+
+def cadastro_paciente(nome, idade, sexo, peso,):
+    cursor.executemany('INSERT INTO pacientes(nome,idade,sexo,peso)VALUES(?,?,?,?,?)',(nome,idade,sexo,peso))
+    conn.commit()
+
+def tabela_equipamento():
+    cursor.execute('CREATE TABLE equipamentos(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, nome TEXT NOT NULL, funcao TEXT NOT NULL, preco INTEGER, status TEXT NOT NULL, data DATE NOT NULL);')
+
+def tabela_paciente():
+    cursor.execute('CREATE TABLE pacientes(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, nome TEXT NOT NULL, idade INTEGER, sexo TEXT NOT NULL, peso INTEGER);')
+
+
+conn.close()
